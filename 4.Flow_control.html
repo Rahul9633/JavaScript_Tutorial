@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flow control in Javascript</title>
+</head>
+
+<body>
+    <h4>These tutorial will help to determine the flow control in Javascript</h4>
+
+    In JavaScript we have the following conditional statements:
+
+    <br>
+
+    Use if to specify a block of code to be executed, if a specified condition is true
+    <br>
+    Use else to specify a block of code to be executed, if the same condition is false
+    <br>
+    Use else if to specify a new condition to test, if the first condition is false
+    <br>
+    Use switch to specify many alternative blocks of code to be executed
+
+    <p id="demo"></p>
+
+    <script>
+
+        // Checking the control flow for logical operation
+        // let age = 55;
+        // if (age >= 35 && age < 60) { // If the age lies in between 35 and 60, Contest will be able to vote
+        //     console.log("You are eligible to stand in the election")
+        // } else if (age < 35) {   // If the contestant is below 35, He will not be able to stand in election.
+        //     console.log("Sorry , You are not able to stand in the election")
+
+        // } else {
+        //     console.log(" You are not able to contest in election")
+
+        //     // Regardless of all the condition specified above, The candidate will not be able contest in Election.
+
+        // }
+
+        // Control flow in switch
+
+        // var cars = ['Audi', 'Bmw', 'Renault', 'Toyota', 'Mahindra', 'Maruti Suzuki']
+        // for (let i = 0; i < cars.length; i++) {
+
+        //     console.log(cars[i])
+
+        // }
+
+        // Switch case statement in Javascript
+
+        // let a = prompt("Enter the values of a");
+
+        // let b = prompt("Enter the values of b");
+
+        // var operator = prompt("Enter the operator you want to perform the operation");
+
+        // let result;
+
+        // switch (operator) {
+
+        //     case "+":
+        //         result = Number(a) + Number(b);
+        //         console.log(typeof (result))
+        //         break;
+
+        //     case "-":
+        //         result = a - b;
+        //         break;
+        //     case "*":
+        //         result = a * b;
+        //         break;
+        //     case "/":
+        //         result = a / b;
+        //         break;
+
+        //     default:
+        //         console.log("Operator Not defined")
+        // }
+        // document.getElementById("demo").innerHTML = "The result is :- " + result;
+
+
+        // For In loop in Javascript
+
+        // const rcit = { name: "RupKamal", Age: 44, Department: "computer_Science" }
+        // let text = "";
+
+        // for (let x in rcit) {
+        //     text += rcit[x];
+        // }
+
+        // document.getElementById("demo").innerHTML = text;
+
+
+
+        // Using for In Loop
+
+        // const list = [423, 2, 3, 1, 4, 5]
+
+        // let x = "";
+
+        // for (let y in list) {
+        //     x += list[y]
+        // }
+        // document.getElementById("demo").innerHTML = x;
+
+
+        // Arrays.forEach Looop
+
+        const days = ['Mon', 'Tue', 'Wed', 'Thr', 'Fri', 'Sat']
+        days.forEach(function (day, index) {
+            console.log(`On ${index}, ${day} falls`);
+        })
+
+        // Looping over a String
+        let language = "JavaScript";
+
+        let text = "";
+        for (let x of language) {
+            text += x;
+        }
+        console.log(text)
+
+    </script>
+
+</body>
+
+</html>

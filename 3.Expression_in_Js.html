@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expression in Javascript</title>
+</head>
+
+<body>
+
+    <h3>The expression and operator used in Javascript are as follow as</h3>
+
+    1. Arithmetic Operation
+    <br>
+    2. Assigment Operation
+    <br>
+    3. Comparing Operation
+    <br>
+    4. Logical Operation
+
+    <br>
+
+    5. Bitwise Operation
+    <br>
+    We will look inside these Operation in these tutorial.
+
+
+    <p id="demo"></p>
+
+    <script>
+
+        // Arithmetic Operation
+        var a = 32;
+        var b = 42;
+        console.log(a + b) // This will result in the summation of the two numbers
+
+        // Assigment Operation
+
+        var x = 22;
+        var z = 32;
+        x += x;  // In this expression we are assigning the values of x+x to the "x"
+        // Here we are assinging the values of 22 and 32 to the variables x and z;
+        console.log(x) // This will print the value of the x in the console menu
+
+        // String Operator
+        let text1 = 'Rohit';
+        let text2 = ' ';
+        let text3 = 'Sharma';
+        console.log(text1 + text2 + text3);
+
+        // Adding string and number
+        let num1 = 4;
+        let str2 = "ram";
+        let result = num1 + str2;
+        console.log(result) // This will concat the two digits and result will print as "4ram"
+
+        // Comparison Operator
+        let aa = 2;
+        let bb = 3;
+        if (aa == bb) {
+            console.log("true");
+        } else {
+            console.log("false")
+        }
+        // The statement print the result according to the situation
+
+        let agee = 13;
+        if (agee >= 18) {
+            console.log("Able to vote")
+        } else {
+            console.log("Unable to vote")
+        }
+
+        // Javascript Bitwise Operation
+
+        let digit1 = 5;
+        let digit2 = 1;
+        console.log(digit1 & digit2)
+
+    </script>
+
+
+</body>
+
+</html>

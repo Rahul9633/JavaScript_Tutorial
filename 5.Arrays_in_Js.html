@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays In Javascript</title>
+</head>
+
+<body>
+
+    <h2>This part of Tutorial will Cover the basics of Array</h2>
+
+
+    An array is like a container which used to store multiple Data inside a single variable.
+    In this tutorial we will see the basics technique how to create array from basic and it's Syntax
+    <p id="demo"></p>
+    <script>
+        // By convention the name of arrays must be start with the keyword const.
+
+        const players = ['Sachin Tendulkar',
+            'Virat Kohli',
+            'Mahendra Singh Dhoni',
+            'Virendra Sehwag',
+            'Gautam Gambhir']   // The simple way to define array.
+
+        // Other method is declaring array first and then adding element after than that
+        const players1 = [];
+        players1[0] = "Kamran Akmal";
+        players1[1] = "Sahid Afirid";
+        players1[2] = "Shoaib Akhatar";
+
+
+        // Using the javascript Keyword new
+
+        const players2 = new Array("Albie Morkel", "AB devilliers", "Grame Smith", "Jaques Kallis") // These elements are not 
+        // fast enough than eariler defined method. Conventionally these method are used for faster execution of programme
+
+        // Accessing the array Elements
+
+        let x;
+        x = players[0]; // Priting the one element of the array
+        //document.getElementById("demo").innerHTML = x;
+        console.log(x)
+        console.log(players) // Print all the array's element in the console
+
+        document.getElementById("demo").innerHTML = players; // Printing the full list of the element
+
+        // Arrays methods and Properties..
+        console.log(players.length) // Print the lenght of the array in console.
+
+        const num = [34, 2, 442, 1, 44]
+        console.log(num.sort()) // Print the element in the sorted form
+
+        // Looping throught the element of the arrays
+        for (let i = 0; i < players.length; i++) {
+            console.log(players[i] + " ")
+        }
+
+        let txt = "<ul>";
+
+        for (let i = 0; i < players.length; i++) {
+            txt += "<li>" + players[i] + "</li>"
+        }
+
+        txt += "</ul>";
+        document.getElementById("demo").innerHTML = txt;
+
+        // Adding the element to the arrays
+
+        players.push("Yuvraj Singh") // Here we have added the element in the array at the last positon
+        console.log(players)
+    </script>
+
+
+
+</body>
+
+</html>
