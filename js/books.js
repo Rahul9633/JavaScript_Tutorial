@@ -3,14 +3,14 @@ var Books = [{ 'title': 'RD sharma', 'price': 123, 'author': 'RD', 'publisher': 
 function BindBooks(books) {
     var row = `<tr>
     <th>S.no</th>
-    <th>Name</th>
+    <th>Name </th>
     <th>Price</th>
     <th>Author</th>
     <th>Publication</th>
     <th>Action</th>
 </tr>`;
     books.forEach(function (book, i) {
-        row += `<tr><td>${i + 1}</td><td>${Books[i].title}</td><td>${Books[i].price}</td><td>${Books[i].author}</td><td>${Books[i].publisher}</td><td><a href="#" onclick=edit(${i})>Edit</a><br><a href="#" onclick=del(${i})>Delete</a></td></tr>`
+        row += `<tr><td>${i + 1}</td><td>${Books[i].title}</td><td>${Books[i].price}</td><td>${Books[i].author}</td><td>${Books[i].publisher}</td><td><a href="#" onclick=edit(${i})>Edit</a><br><a href="#" onclick=del(${i})>Delete</a><br><a href="#" onclick=sort()>Sort</a></td></tr>`
     })
 
     document.getElementById("tbl").innerHTML = row;
@@ -111,17 +111,37 @@ function SearchBook() {
 }
 
 
-function showBo(book) {
-    var row = `<tr>
-    <th>S.no</th>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Author</th>
-    <th>Publication</th>
-    <th>Action</th>
-    </tr>`;
-    books.forEach(function (book, i) {
-        row += `<tr><td>${i + 1}</td><td>${Books[i].title}</td><td>${Books[i].price}</td><td>${Books[i].author}</td><td>${Books[i].publisher}</td><td><a href="#" onclick=edit(${i})>Edit</a><br><a href="#" onclick=del(${i})>Delete</a></td></tr>`
-    })
+function sort() {
+    row = '';
+    row = `<tr>
+                <th>S.no</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Author</th>
+                <th>Publication</th>
+                <th>Action</th>
+                </tr>`;
+
+    var sbook = [];
+    for (let i = 0; i < Books.length; i++) {
+        sbook.push(Books[i].title.toUpperCase())
+    }
+    sbook.sort();
+    for (let i = 0; i < sbook.length; i++) {
+        for (let j = 0; j < Books.length; j++) {
+
+            if (Books[j].title.toUpperCase().indexOf(sbook[i]) > -1) {
+                console.log(Books[j])
+                // console.log(sbook[i])
+                // console.log(Books[j].title)
+                //console.log(Books)
+                row += `<tr><td>${i + 1}</td><td>${Books[j].title}</td><td>${Books[j].price}</td><td>${Books[j].author}</td><td>${Books[j].publisher}</td><td><a href="#" onclick=edit(${j})>Edit</a><br><a href="#" onclick=del(${j})>Delete</a></td></tr>`
+
+
+            }
+        }
+    }
+    document.getElementById("tbl").innerHTML = row;
+
 }
 BindBooks(Books);
