@@ -3,14 +3,14 @@ var Books = [{ 'title': 'RD sharma', 'price': 123, 'author': 'RD', 'publisher': 
 function BindBooks(books) {
     var row = `<tr>
     <th>S.no</th>
-    <th>Name </th>
+    <th><a href="#" onclick=sort()>Name</a></th>
     <th>Price</th>
     <th>Author</th>
     <th>Publication</th>
     <th>Action</th>
 </tr>`;
     books.forEach(function (book, i) {
-        row += `<tr><td>${i + 1}</td><td>${Books[i].title}</td><td>${Books[i].price}</td><td>${Books[i].author}</td><td>${Books[i].publisher}</td><td><a href="#" onclick=edit(${i})>Edit</a><br><a href="#" onclick=del(${i})>Delete</a><br><a href="#" onclick=sort()>Sort</a></td></tr>`
+        row += `<tr><td>${i + 1}</td><td>${Books[i].title}</td><td>${Books[i].price}</td><td>${Books[i].author}</td><td>${Books[i].publisher}</td><td><a href="#" onclick=edit(${i})>Edit</a><br><a href="#" onclick=del(${i})>Delete</a><br></td></tr>`
     })
 
     document.getElementById("tbl").innerHTML = row;
@@ -87,7 +87,7 @@ function SearchBook() {
     // console.log(keywor);
     row = `<tr>
                 <th>S.no</th>
-                <th>Name</th>
+                <th><a href="#" onclick=sort()>Name</a></th>
                 <th>Price</th>
                 <th>Author</th>
                 <th>Publication</th>
@@ -115,7 +115,7 @@ function sort() {
     row = '';
     row = `<tr>
                 <th>S.no</th>
-                <th>Name</th>
+                <th><a href="#" onclick=sort()>Name</a></th>
                 <th>Price</th>
                 <th>Author</th>
                 <th>Publication</th>
