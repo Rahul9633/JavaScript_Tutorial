@@ -1,4 +1,6 @@
-var Books = [{ 'title': 'RD sharma', 'price': 123, 'author': 'RD', 'publisher': 'Arihant' }]
+var Books = [{ 'title': 'Mathematics', 'price': 123, 'author': 'RD', 'publisher': 'Arihant' },
+{ 'title': "Science", 'price': 1223, 'author': 'raman', 'publisher': 'Agrawal' },
+{ 'title': "Hindi", 'price': 422, 'author': 'Munshi Premchand', 'publisher': 'Geeta Press' }]
 
 function BindBooks(books) {
     var row = `<tr>
@@ -83,7 +85,7 @@ function ClearForm() {
 
 function SearchBook() {
     row = '';
-    var keywor = document.getElementById("sch").value.toUpperCase();
+    let keywor = document.getElementById("sch").value.toUpperCase();
     // console.log(keywor);
     row = `<tr>
                 <th>S.no</th>
@@ -93,8 +95,13 @@ function SearchBook() {
                 <th>Publication</th>
                 <th>Action</th>
                 </tr>`;
-    for (let i = 0; i < Books.length; i++) {
 
+    // const filter = Books.filter((item, index) => {
+    //     return item.title.toUpperCase().includes(keywor)
+    // })
+    // console.log("Filter Data ", filter);
+
+    for (let i = 0; i < Books.length; i++) {
         // console.log(bb);
         if (Books[i].title.toUpperCase().indexOf(keywor) > -1) {
             console.log(Books[i].title);
@@ -106,7 +113,9 @@ function SearchBook() {
             row += `<tr><td>${i + 1}</td><td>${Books[i].title}</td><td>${Books[i].price}</td><td>${Books[i].author}</td><td>${Books[i].publisher}</td><td><a href="#" onclick=edit(${i})>Edit</a><br><a href="#" onclick=del(${i})>Delete</a></td></tr>`
             // })
         }
+
     }
+
     document.getElementById("tbl").innerHTML = row;
 }
 
@@ -115,7 +124,7 @@ function sort() {
     row = '';
     row = `<tr>
                 <th>S.no</th>
-                <th><a href="#" onclick=sort()>Name</a></th>
+                <th><a href="#" onclick=sort()>Name</a></th>g
                 <th>Price</th>
                 <th>Author</th>
                 <th>Publication</th>
