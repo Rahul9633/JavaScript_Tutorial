@@ -80,4 +80,48 @@ function ClearForm() {
     document.getElementById("publish").value = ""
 
 }
+
+function SearchBook() {
+    row = '';
+    var keywor = document.getElementById("sch").value.toUpperCase();
+    // console.log(keywor);
+    row = `<tr>
+                <th>S.no</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Author</th>
+                <th>Publication</th>
+                <th>Action</th>
+                </tr>`;
+    for (let i = 0; i < Books.length; i++) {
+
+        // console.log(bb);
+        if (Books[i].title.toUpperCase().indexOf(keywor) > -1) {
+            console.log(Books[i].title);
+            // document.getElementById("bookSch").innerHTML = Books[i]
+            // console.log(Books[i])
+            // varb.push(Book[i])
+            // Books.forEach(function (book, i) {
+
+            row += `<tr><td>${i + 1}</td><td>${Books[i].title}</td><td>${Books[i].price}</td><td>${Books[i].author}</td><td>${Books[i].publisher}</td><td><a href="#" onclick=edit(${i})>Edit</a><br><a href="#" onclick=del(${i})>Delete</a></td></tr>`
+            // })
+        }
+    }
+    document.getElementById("tbl").innerHTML = row;
+}
+
+
+function showBo(book) {
+    var row = `<tr>
+    <th>S.no</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Author</th>
+    <th>Publication</th>
+    <th>Action</th>
+    </tr>`;
+    books.forEach(function (book, i) {
+        row += `<tr><td>${i + 1}</td><td>${Books[i].title}</td><td>${Books[i].price}</td><td>${Books[i].author}</td><td>${Books[i].publisher}</td><td><a href="#" onclick=edit(${i})>Edit</a><br><a href="#" onclick=del(${i})>Delete</a></td></tr>`
+    })
+}
 BindBooks(Books);

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object in JavaScript</title>
+</head>
+
+<body>
+    <h2>Object in JavaScript</h2>
+    <p id="demo"></p>
+    <script>
+        let car = [{ "Name": "fiat", "Model": 2021, "transmission": "Automatic" },
+        { "Name": "Mahindra", "Model": 2018, "transimissioin": "Manual" }]
+
+        car[0].Name = "Lamborgini";
+        document.getElementById("demo").innerHTML = car[0].Name
+
+        console.log(car[0].Name)
+    </script>
+
+
+</body>
+
+</html>
