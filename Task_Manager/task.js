@@ -154,10 +154,26 @@ myEvents = Events.map((item, index) => {
         name: item.task,
         // badge: "08/03 - 08/05",
         date: item.date,
-        description: item.task,
+        description: item.status,
+        color: changeColor(item),
         type: "event",
     }
 })
+
+function changeColor(item) {
+
+    if (item.status == "start") {
+        return "red"
+
+
+    }
+    else if (item.status == "in-progress") {
+        return "orange"
+    } else {
+        return "green"
+    }
+
+}
 
 // Loading all the events in the list to show.
 $('#evoCalendar').evoCalendar({
