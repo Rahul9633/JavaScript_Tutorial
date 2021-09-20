@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="name" /><br />
+    <input type="text" id="pass" /><br />
+    <input type="button" id="submit" value="Submit" />
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Pass</th>
+        </thead>
+        <tbody id="res"></tbody>
+    </table>
+</body>
+<script>
+    document.getElementById("submit").addEventListener("click", (e) => {
+        e.preventDefault();
+        let name = document.getElementById("name").value
+        let pass = document.getElementById("pass").value
+        saveRecord(name, pass)
+    })
+    let arr = []
+    const saveRecord = (name, pass) => {
+        arr.push({ name, pass })
+        console.log(arr);
+        readData()
+    }
+    const readData = () => {
+        var table = document.getElementById("res");
+        var row;
+        arr.map((i) => (
+            row += `<tr>
+                <td>${i.name}</td>
+                <td>${i.pass}</td>
+                </tr>`
+        ))
+        table.innerHTML = row
+    }
+</script>
+
+</html>
