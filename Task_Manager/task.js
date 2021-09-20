@@ -1,49 +1,30 @@
 // document.getElementById("something").style.display = "none"
 
 function saveTaskk() {
-
-
     var total_task = []
-
-
-
-
-
-
-
-
-
     const key = JSON.parse(localStorage.getItem("task"));
     // console.log(key);
-
-
     if (key != null) {
         for (let i = 0; i < key.length; i++) {
             total_task.push(key[i]);
         }
     }
     // console.log("The array is", total_task)
-
-
-
     const task = document.getElementById("task").value;
     const status = document.getElementById("status").value;
     const priority = document.getElementById("priority").value;
     const date = document.getElementById("date").value;
+    var todayTime = new Date(date);
 
+
+    const d = new Date(date);
+    // document.write("The current month is " + monthNames[d.getMonth()]);
+    // console.log(monthNames[d.getMonth()], "/", month, "/", year)
     if (task !== "" && status !== " " && priority !== " " && date !== " ") {
         total_task.push({ "task": task, "status": status, "priority": priority, "date": date })
     }
-
-
-
-
     localStorage.setItem("task", JSON.stringify(total_task))
-
     clearAll()
-
-
-
 }
 
 function clearAll() {
@@ -52,33 +33,19 @@ function clearAll() {
     document.getElementById("status").value = "";
     document.getElementById("priority").value = "";
     document.getElementById("date").value = "";
-
-
 }
 
 
-
-
-
 function toShow() {
-
     const arr = []
-
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         // console.log(key)
-
         const tempData = JSON.parse(localStorage.getItem(key));
-
-
-
         for (let j = 0; j < tempData.length; j++) {
             // console.log(tempData[j])
             arr.push(tempData[j]);
         }
-
-
-
     }
     var tab = document.getElementById("res");
     var row = ``;
@@ -108,7 +75,7 @@ function edit(index) {
     document.getElementById('status').value = key[index].status;
     document.getElementById('priority').value = key[index].priority;
     document.getElementById('date').value = key[index].date;
-    document.getElementById('save').innerHTML = `<button id="save" onclick="updateTask()">update</button>`
+    document.getElementById('save').innerHTML = `<button id = "save" onclick = "updateTask()" > update</button> `
 
 
 
@@ -176,3 +143,65 @@ function showDataToday() {
     document.getElementById("res").innerHTML = row
 
 }
+
+let Events = JSON.parse(localStorage.getItem("task"));
+let myEvents = []
+
+myEvents = Events.map((item, index) => {
+    console.log(item)
+    return {
+        id: index,
+        name: item.task,
+        // badge: "08/03 - 08/05",
+        date: item.date,
+        description: item.task,
+        type: "event",
+    }
+})
+
+// Loading all the events in the list to show.
+$('#evoCalendar').evoCalendar({
+
+    calendarEvents: myEvents
+
+});
+
+
+// Custom setting the format of the date
+$('#evoCalendar').evoCalendar({
+    format: 'mm/dd/yyyy',
+    titleFormat: 'MM yyyy',
+    eventHeaderFormat: 'MM d, yyyy'
+});
+
+
+$('#evoCalendar').evoCalendar({
+    sidebarToggler: true,
+    sidebarDisplayDefault: true,
+    eventListToggler: true,
+    eventDisplayDefault: true,
+});
+
+// Highlighting today's date
+
+$('#evoCalendar').evoCalendar({
+    todayHighlight: true
+});
+
+// Determining the event occuring on the given date
+
+
+$('#evoCalendar').evoCalendar({
+
+    onSelectDate: function () {
+
+        console.log('onSelectDate!')
+
+    }
+
+});
+
+
+
+
+
